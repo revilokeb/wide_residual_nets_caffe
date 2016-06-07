@@ -15,6 +15,6 @@ My lowest (top 1) validation error is 7.46% which is pretty bad when compared wi
 but given my rather modest data preprocessing it could be ok. My last snapshot can be found here: https://drive.google.com/open?id=0B1qLpHDbczM2SlByaHk2V3FkQkk
 ![Alt text](./wrn_cifar10_nesterov.png?raw=true "Current Validation Error / Training Loss")
 
-When using solver RMSProp and a learning rate schedule similar to http://arxiv.org/abs/1602.07261 I am learning faster but the final accuracy is much worse.
+When using solver RMSProp and a learning rate schedule similar to http://arxiv.org/abs/1602.07261 I am learning faster but the final accuracy is much worse at aroung 13.5% validation error.
 ![Alt text](./wrn_cifar10_rmsprop.png?raw=true "Current Validation Error / Training Loss")
 

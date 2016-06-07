@@ -18,3 +18,4 @@ but given my rather modest data preprocessing it could be ok. My last snapshot c
 When using solver RMSProp and a learning rate schedule similar to http://arxiv.org/abs/1602.07261 I am learning faster but the final accuracy is much worse at aroung 13.5% validation error.
 ![Alt text](./wrn_cifar10_rmsprop.png?raw=true "Current Validation Error / Training Loss")
 
+Currently I am running the experiments with dropout between conv layers.

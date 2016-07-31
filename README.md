@@ -1,6 +1,8 @@
 # wide_residual_nets_caffe
 Training wide residual nets in caffe
 
+###CIFAR 10###
+
 Here I try training wide residual nets with 28 convolutional layers and widening factor 10 (wrn_28_10) first published in 
 http://arxiv.org/abs/1605.07146 on the CIFAR 10 dataset using the Caffe framework.
 
@@ -27,5 +29,6 @@ When I include dropout between convolutional layers I get a very similar learnin
 <img src="https://github.com/revilokeb/wide_residual_nets_caffe/blob/master/wrn_cifar10_dropout_nesterov.png" | width="350">
 </p>
 
-Currently I am exploring Wide Residual Nets on the full Imagenet 1k set resized to 128x128.
+###Imagenet 1k###
+Currently I am exploring Wide Residual Nets on the full Imagenet 1k set resized to 128x128, or more precisely I have resized Imagenet 1k to 1. 128x128 and 2. 156x156 and typically crop 119x119 from the first dataset or 151x151 from the second dataset. My current approach for tackling Imagenet 1k with architectures similar to https://github.com/szagoruyko/wide-residual-networks is to combine e.g. WRN-28-10 sitting on the stem of an Inception-Resnet-V1 of http://arxiv.org/abs/1602.07261 (p.6), i.e. the WRN-part replacing the inception part of Inception-Resnet-V1 (stem of the Inception-Resnet-V2 could be an alternative). Reason I am running Imagenet resized to relatively small sizes is entirely due to the fact that computations dont take as long as on larger sizes such as 256 x 256 or 299 x 299 etc and demand less GPU ressources (beforementioned approach could be as easily applied to larger image sizes). 
 

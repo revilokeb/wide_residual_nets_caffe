@@ -32,3 +32,11 @@ When I include dropout between convolutional layers I get a very similar learnin
 ###Imagenet 1k###
 Currently I am exploring Wide Residual Nets on the full Imagenet 1k set resized to 128x128, or more precisely I have resized Imagenet 1k to 1. 128x128 and 2. 156x156 and typically crop 119x119 from the first dataset or 151x151 from the second dataset. My current approach for tackling Imagenet 1k with architectures similar to https://github.com/szagoruyko/wide-residual-networks is to combine e.g. WRN-28-10 sitting on the stem of an Inception-Resnet-V1 of http://arxiv.org/abs/1602.07261 (p.6), i.e. the WRN-part replacing the inception part of Inception-Resnet-V1 (stem of the Inception-Resnet-V2 could be an alternative). Reason I am running Imagenet resized to relatively small sizes is entirely due to the fact that computations dont take as long as on larger sizes such as 256 x 256 or 299 x 299 etc and demand less GPU ressources (beforementioned approach could be as easily applied to larger image sizes). 
 
+The most simple architecture I could think of to run a WRN on Imagenet 1k was to use two successive 3x3 convolutional layers to scale down the 151 x 151 image crops and then employ the best performing WRN on top (from CIFAR 10, WRN-28-10): see wrn_ilsvrc_151_v7.prototxt / wrn_ilsvrc_151_v7.py. Unfortunately I needed to interrupt training after 14 epochs, which I might resume when I have some spare time / computing ressources available again for that task. 
+<p align="center">
+<img src="https://github.com/revilokeb/wide_residual_nets_caffe/blob/master/images/wrn_ilsvrc_151_14epochs_v7.png" | width="350">
+</p>
+
+The above very simple achitecture could be set up in a somewhat more elaborate manner by e.g. taking the stem of the Inception-ResNet-V1 for scaling down. An example architecture wrn_ilsvrc_119_v8.prototxt is included in the repository (which I am currently running between some other tasks, I will post results when available). 
+
+

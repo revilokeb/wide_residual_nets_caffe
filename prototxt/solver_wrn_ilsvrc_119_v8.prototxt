@@ -1,0 +1,21 @@
+net: "/PATH/TO/wrn_ilsvrc_119_v8.prototxt"
+test_iter: 1563
+test_interval: 5000 #9143
+test_initialization: false
+iter_size: 1
+#type: "RMSProp"
+#rms_decay: 0.9
+#delta: 1.0
+type: "Nesterov"
+display: 100
+average_loss: 1000
+base_lr: 0.04
+lr_policy: "step"
+stepsize: 10000
+gamma: 0.94
+max_iter: 100000
+momentum: 0.9
+weight_decay: 0.0005
+snapshot: 50000
+snapshot_prefix: "/PATH/TO/wrn_v8"
+solver_mode: GPU
